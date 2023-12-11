@@ -1,0 +1,107 @@
+.container {
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* Small */
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+/* Medium */
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+/* Large */
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+.project {
+  text-align: center;
+}
+.grad-box {
+  padding: 40px;
+  border-bottom: 1px solid #ccc;
+  color: #fff;
+  font-weight: bold;
+  font-size: 24px;
+}
+form {
+  margin: 20px auto;
+}
+form .form-group {
+  display: inline-block;
+}
+form .form-group label {
+  display: block;
+  margin-bottom: 15px;
+}
+form .form-group  input {
+  background-color: #efefef;
+  border: 1px solid #ccc;
+}
+form span.separator {
+  margin: 0 20px;
+}
+@media (max-width: 576px) {
+  .separator {
+    display: none;
+  }
+  form .form-group {
+    display: block;
+    margin: 15px 0;
+  }
+  form .form-group label {
+    margin-bottom: 5px;
+  }
+}
+.result,
+.syntax {
+  margin: 20px auto;
+  background-color: rgba(3, 169, 244, 0.35);
+  padding: 20px;
+  text-align: left;
+  position: relative;
+}
+.result img {
+  width: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+.result span.title,
+.syntax span.title {
+  font-weight: bold;
+  width: 120px;
+  display: inline-block;
+}
+@media (max-width: 767px) {
+  .result span.title,
+  .syntax span.title {
+    display: block;
+    width: fit-content;
+  }
+}
+.copied-message {
+  font-size: 12px;
+  animation: fadeOut 0.5s ease-in-out;
+  position: absolute;
+  top: 30px;
+  right: 4px;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

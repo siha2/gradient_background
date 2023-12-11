@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>gradient background</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <div id="siha-app" class="project">
+    <div class="container">
+      <div class="grad-box" :style="{backgroundImage: 'linear-gradient('+direction+','+colorOne+','+colorTwo+')'}">gradient preview</div>
+      <form>
+        <div class="form-group">
+          <label for="">direction</label>
+          <select v-model="direction">
+            <option value="to right">to right</option>
+            <option value="to bottom">to bottom</option>
+            <option value="to left">to left</option>
+            <option value="to top">to top</option>
+          </select>
+        </div>
+        <span class="separator">|</span>
+        <div class="form-group">
+          <label for="">direction</label>
+          <input type="color" v-model="colorOne">
+        </div>
+        <span class="separator">|</span>
+        <div class="form-group">
+          <label for="">direction</label>
+          <input type="color" v-model="colorTwo">
+        </div>
+      </form>
+      <div class="result">
+        <img src="copy.png" alt="photo" @click="copy">
+        <span class="title">css code:</span>
+        <span class="value" ref="cssCode">background-image: linear-gradient({{direction}}, {{colorOne}}, {{colorTwo}});</span>
+        <span v-if="showCopied" class="copied-message">Copied</span>
+      </div>
+      <div class="syntax">
+        <span class="title">syntax:</span>
+        <span class="value">background-image: linear-gradient(direction, color-stop1, color-stop2, ...);</span>
+      </div>
+    </div>
+  </div>
+  <script src="js/vue.js"></script>
+  <script>
+    let vm = new Vue({
+      el: '#siha-app',
+      data: {
+        direction: "to right",
+        colorOne: "#ff0000",
+        colorTwo: "#ffff00",
+        showCopied: false,
+      },
+      methods: {
+        copy: function () {
+          const cssCode = this.$refs.cssCode.innerText;
+          const textarea = document.createElement('textarea');
+          textarea.value = cssCode;
+          document.body.appendChild(textarea);
+          textarea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textarea);
+          this.showCopied = true;
+          setTimeout(() => {
+            this.showCopied = false;
+          }, 500);
+        }
+      }
+    })
+  </script>
+</body>
+</html>
